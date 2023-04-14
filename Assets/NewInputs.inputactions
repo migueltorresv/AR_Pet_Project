@@ -1,0 +1,34 @@
+{
+    "name": "NewInputs",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "40d7e176-7287-4c63-adaf-135338a015e3",
+            "actions": [
+                {
+                    "name": "Touch",
+                    "type": "Button",
+                    "id": "f54e735b-4a62-43d7-8c29-8ce13bc508cf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3a0b2920-9640-4316-8379-a98ea13bd148",
+                    "path": "<Pointer>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
