@@ -35,4 +35,9 @@ public class PetAnimations : MonoBehaviour
     {
         OnLiftAnimFinishedEvent?.Invoke();
     }
+
+    public void SetTriggerParam(string nameParam)
+    {
+        _animator.SetTrigger(nameParam);
+    }
 }

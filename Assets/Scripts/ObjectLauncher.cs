@@ -7,6 +7,7 @@ public class ObjectLauncher : MonoBehaviour
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private Rigidbody _objectPrefab;
     [SerializeField] private float _initialVelocitySpeed = 10.0f;
+    [SerializeField] private float _limitBottomScreen = 300;
     private bool canLaunch;
     private GameObject prefabInstantiated = null;
     public bool CanLaunch
@@ -19,6 +20,7 @@ public class ObjectLauncher : MonoBehaviour
     {
         if (ctx.control.device is Pointer device && ctx.started)
         {
+            if (device.position.ReadValue().y <= _limitBottomScreen) return;
             if (_objectPrefab == null) return;
             if (!CanLaunch) return;
             var ray = _mainCamera.ScreenPointToRay(device.position.ReadValue());

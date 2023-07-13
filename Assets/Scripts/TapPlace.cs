@@ -10,7 +10,9 @@ public class TapPlace : MonoBehaviour
     [SerializeField] private ARRaycastManager _arRaycastManager;
     [SerializeField] private GameObject _prefab;
     [SerializeField] private ARPlaneManager _arPlaneManager;
+    [SerializeField] private float _limitBottomScreen = 300;
     [SerializeField] private UnityEvent OnObjectPlacedEvent;
+    
     private List<ARRaycastHit> _hits = new List<ARRaycastHit>();
     private bool hasInstantiate;
     
@@ -18,6 +20,7 @@ public class TapPlace : MonoBehaviour
     {
         if (ctx.control.device is Pointer device && ctx.started)
         {
+            if (device.position.ReadValue().y <= _limitBottomScreen) return;
             if (hasInstantiate) return; 
             if (_arRaycastManager.Raycast(device.position.ReadValue(), _hits, 
                 TrackableType.PlaneWithinPolygon))
